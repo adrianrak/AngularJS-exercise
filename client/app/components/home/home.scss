@@ -1,3 +1,18 @@
+@import './../../common/common';
+
 .home {
   color: red;
+}
+
+.header {
+  background-color: $lightBgColor;
+  height: 300px;
+  @include displayFlex(flex, center, center);
+  text-align: center;
+  color: $accentColor;
+
+  h1 {
+    margin: 0;
+    font-size: 5rem;
+  }
 }

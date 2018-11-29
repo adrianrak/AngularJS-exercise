@@ -4,6 +4,8 @@
   height: 6.5rem;
   background-color: $primaryColor;
   padding: 1rem;
+  @include displayFlex(flex, center, center);
+  margin-bottom: 0 !important;
 
   .nav-links,
   .logo {
@@ -11,12 +13,19 @@
   }
 
   .logo {
-    color: $lightTextColor;
+    color: $darkTextColor;
     margin-right: 50%;
   }
 
   .nav-links span {
-    color: $lightTextColor;
-    font-size: 1.6rem;
+    color: $darkTextColor;
+    font-size: 2.0rem;
+    text-decoration: none;
+    padding: 1rem;
+  }
+
+  a {
+    color: $accentColor;
+    text-transform: uppercase;
   }
 }

@@ -2,7 +2,6 @@ import configurationService from './../../common/service/ConfigurationService';
 
 class HomeController {
   constructor() {
-    this.name = 'home';
     this.userName = '';
     this.configurationService = configurationService;
   }

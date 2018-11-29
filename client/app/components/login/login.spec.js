@@ -24,6 +24,17 @@ describe('Login', () => {
       let controller = makeController();
       expect(controller).to.have.property('name');
     });
+
+    it('userName is empty', () => {
+      let controller = makeController();
+        expect(controller.userName).equal('');
+    });
+
+    it('has a configurationService property', () => { 
+      let controller = makeController();
+      expect(controller).to.have.property('configurationService');
+    });
+
   });
 
   describe('Template', () => {
