@@ -1,11 +1,15 @@
 @import '../common';
 
 .hero {
-  background-color: $darkBgColor;
+  background-color: $bgColor;
   height: 50rem;
   padding: 3rem;
+  width: 60%;
+  margin: 5rem auto;
+  border-radius: 5px;
+  text-align: center;
 
   * {
-    color: $lightTextColor;
+    color: $darkTextColor;
   }
 }
