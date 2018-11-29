@@ -3,6 +3,6 @@
   <h1>{{ $ctrl.name }}</h1>
 </div>
 <div>
-  <input>
-  <button ui-sref="home">Login</button>
+  <input ng-model="$ctrl.userName">
+  <button ng-click="$ctrl.saveName()" ui-sref="home">Login</button>
 </div>

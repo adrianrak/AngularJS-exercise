@@ -1,10 +1,10 @@
-import ConfigurationService from './../../common/service/ConfigurationService';
+import configurationService from './../../common/service/ConfigurationService';
 
 class HomeController {
   constructor() {
     this.name = 'home';
     this.userName = '';
-    this.configurationService = ConfigurationService;
+    this.configurationService = configurationService;
   }
   $onInit() {
     this.getUserName();
