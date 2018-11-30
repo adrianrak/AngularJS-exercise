@@ -43,11 +43,12 @@ describe('Login', () => {
 
       afterEach(() => {
         setUserNameSpy.restore();
-      })
-
-      it('should call saveName', () => {
-        expect(setUserNameSpy).to.be.ok;
       });
+
+      it('should call setUserName method', () => {
+        expect(setUserNameSpy.called).to.be.ok;
+      });
+
     });
   });
 });
