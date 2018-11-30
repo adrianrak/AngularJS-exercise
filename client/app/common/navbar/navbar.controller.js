@@ -1,4 +1,3 @@
-
 class NavbarController {
   constructor(configurationService) {
     "ngInject";
@@ -6,15 +5,19 @@ class NavbarController {
     this.login = '';
     this.configurationService = configurationService;
   }
-  $onInit(){
+
+  $onInit() {
     this.loginSet();
   }
-  loginSet(){
+
+  loginSet() {
     this.configurationService.getUserName() === 'Guest' ? this.login = 'login' : this.login = 'logout';
   }
-  logout(){
+
+  logout() {
     this.configurationService.setUserName('Guest');
   }
+  
 }
 
 export default NavbarController;
