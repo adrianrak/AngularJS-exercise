@@ -2,7 +2,6 @@
 class LoginController {
   constructor(configurationService) {
     "ngInject";
-    this.name = 'login';
     this.userName = '';
     this.configurationService = configurationService;
   }

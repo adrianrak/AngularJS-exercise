@@ -1,10 +1,10 @@
 <navbar></navbar>
 <div class="login">
   <div>
-    <h1>{{ $ctrl.name }}</h1>
+    <h1>Enter your name:</h1>
   </div>
-  <div class="loginForm">
+  <div class="login-form">
     <input ng-model="$ctrl.userName">
-    <button class="btn btn-success" ng-click="$ctrl.saveName()" ui-sref="home">Login</button>
+    <button class="btn btn-success btn-lg btn-login" ng-click="$ctrl.saveName()" ui-sref="home">Login</button>
   </div>
 </div>

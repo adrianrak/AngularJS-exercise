@@ -25,10 +25,6 @@ describe('Login', () => {
       controller = makeController();
     });
 
-    it('has a name property', () => { 
-      expect(controller).to.have.property('name');
-    });
-
     it('userName is empty', () => {
         expect(controller.userName).to.be.equal('');
     });

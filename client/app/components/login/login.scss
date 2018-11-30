@@ -1,6 +1,28 @@
 @import './../../common/common.scss';
 
 .login {
+  @include displayFlex(flex, center, center);
+  flex-direction: column;
+  background-color: $bgColor;
+  height: 50rem;
+  padding: 3rem;
+  width: 60%;
+  margin: 5rem auto;
+  border-radius: 5px;
+  text-align: center;
+
+  h1 {
+    text-transform: uppercase;
+    font-size: 3rem;
+  }
+
+  .login-form {
     @include displayFlex(flex, center, center);
     flex-direction: column;
+    font-size: 2rem;
+  }
+
+  .btn-login {
+    margin: 10px;
+  }
 }
