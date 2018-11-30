@@ -1,16 +1,16 @@
 import LoginModule from './login';
 import LoginController from './login.controller';
-import LoginComponent from './login.component';
-import LoginTemplate from './login.html';
 
 describe('Login', () => {
-  let $rootScope, makeController;
+  let makeController;
+  const configurationService = {
+    setUserName: () => {}
+  };
 
   beforeEach(window.module(LoginModule));
-  beforeEach(inject((_$rootScope_) => {
-    $rootScope = _$rootScope_;
+  beforeEach((() => {
     makeController = () => {
-      return new LoginController();
+      return new LoginController(configurationService);
     };
   }));
 
@@ -19,42 +19,39 @@ describe('Login', () => {
   });
 
   describe('Controller', () => {
-    // controller specs
-    it('has a name property [REMOVE]', () => { // erase if removing this.name from the controller
-      let controller = makeController();
+    let controller ;
+
+    beforeEach(() => {
+      controller = makeController();
+    });
+
+    it('has a name property', () => { 
       expect(controller).to.have.property('name');
     });
 
     it('userName is empty', () => {
-      let controller = makeController();
-        expect(controller.userName).equal('');
+        expect(controller.userName).to.be.equal('');
     });
 
     it('has a configurationService property', () => { 
-      let controller = makeController();
       expect(controller).to.have.property('configurationService');
     });
 
-  });
+    describe('saveName', () => {
+      let setUserNameSpy;
 
-  describe('Template', () => {
-    // template specs
-    // tip: use regex to ensure correct bindings are used e.g., {{  }}
-    it('has name in template [REMOVE]', () => {
-      expect(LoginTemplate).to.match(/{{\s?\$ctrl\.name\s?}}/g);
-    });
-  });
+      beforeEach(() => {
+        setUserNameSpy = sinon.spy(configurationService, 'setUserName');
+        controller.saveName();
+      });
 
-  describe('Component', () => {
-    // component/directive specs
-    let component = LoginComponent;
+      afterEach(() => {
+        setUserNameSpy.restore();
+      })
 
-    it('includes the intended template', () => {
-      expect(component.template).to.equal(LoginTemplate);
-    });
-
-    it('invokes the right controller', () => {
-      expect(component.controller).to.equal(LoginController);
+      it('should call saveName', () => {
+        expect(setUserNameSpy).to.be.ok;
+      });
     });
   });
 });

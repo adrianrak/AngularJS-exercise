@@ -1,3 +1,6 @@
+@import './../../common/common.scss';
+
 .login {
-  color: red;
+    @include displayFlex(flex, center, center);
+    flex-direction: column;
 }
