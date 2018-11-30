@@ -1,13 +1,13 @@
-import configurationService from './../../common/service/ConfigurationService';
 
 class LoginController {
-  constructor() {
+  constructor(configurationService) {
+    "ngInject";
     this.name = 'login';
     this.userName = '';
     this.configurationService = configurationService;
   }
   saveName(){
-   this.configurationService.setUserName = this.userName;
+   this.configurationService.setUserName(this.userName);
   }
 }
 

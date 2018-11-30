@@ -1,16 +1,15 @@
 class ConfigurationService {
     constructor() {
-        this.userName = '';
+        this.userName = 'Guest';
     }
 
-    get getUserName(){
+    getUserName(){
         return this.userName;
     }
 
-    set setUserName(loginName){
+    setUserName(loginName){
         this.userName = loginName;
     }
 }
 
-const configurationService = new ConfigurationService;
-export default configurationService;
+export default ConfigurationService;

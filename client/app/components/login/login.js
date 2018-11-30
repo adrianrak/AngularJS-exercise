@@ -1,9 +1,11 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import loginComponent from './login.component';
+import configurationService from './../../common/service/configurationServiceModule';
 
 let loginModule = angular.module('login', [
-  uiRouter
+  uiRouter,
+  configurationService
 ])
 
 .config(($stateProvider) => {

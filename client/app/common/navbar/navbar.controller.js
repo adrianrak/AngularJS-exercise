@@ -1,7 +1,7 @@
-import configurationService from './../service/ConfigurationService';
 
 class NavbarController {
-  constructor() {
+  constructor(configurationService) {
+    "ngInject";
     this.name = 'home';
     this.login = '';
     this.configurationService = configurationService;
@@ -10,10 +10,10 @@ class NavbarController {
     this.loginSet();
   }
   loginSet(){
-    this.configurationService.userName === '' ? this.login = 'login' : this.login = 'logout';
+    this.configurationService.getUserName() === 'Guest' ? this.login = 'login' : this.login = 'logout';
   }
   logout(){
-    this.configurationService.setUserName = '';
+    this.configurationService.setUserName('Guest');
   }
 }
 

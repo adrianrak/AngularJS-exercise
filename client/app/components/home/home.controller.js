@@ -1,7 +1,7 @@
-import configurationService from './../../common/service/ConfigurationService';
 
 class HomeController {
-  constructor() {
+  constructor(configurationService) {
+    "ngInject";
     this.userName = '';
     this.configurationService = configurationService;
   }
@@ -9,7 +9,8 @@ class HomeController {
     this.getUserName();
   }
   getUserName(){
-    this.configurationService.getUserName === '' ? this.userName = 'Guest' : this.userName = this.configurationService.getUserName;
+    //this.configurationService.getUserName === '' ? this.userName = 'Guest' : this.userName = this.configurationService.getUserName;
+    this.userName = this.configurationService.getUserName();
   }
 
   

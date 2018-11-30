@@ -1,9 +1,11 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import homeComponent from './home.component';
+import configurationService from './../../common/service/configurationServiceModule';
 
 let homeModule = angular.module('home', [
-  uiRouter
+  uiRouter,
+  configurationService
 ])
 
 .config(($stateProvider, $urlRouterProvider) => {
