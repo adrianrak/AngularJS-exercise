@@ -1,18 +1,26 @@
 import configurationService from './ConfigurationService';
 
 describe('ConfigurationService', () => {
-    let service = configurationService;
+    let service;
+    beforeEach(() => {
+        service = new configurationService;
+    })
 
     describe('getUserName', () => {
-        const name = 'Zbigniew';
-        beforeEach(() => {
-            service.setUserName = name;
-        })
-        it('user name to equal empty', () => {
-            expect(service.getUserName).to.be.eq(service.userName);
-        });
-        it('setUserName', () => {
-            expect(service.SetUserName).to.be.eq(name);
+        const name = 'Guest';
+        it('user name to equal Guest', () => {
+            expect(service.getUserName()).to.be.eq(name);
         });
     });
+
+    describe('setUserName', () => {
+        const name = 'Zbigniew';
+        beforeEach(() => {
+            service.setUserName(name);
+        });
+
+        it('user name to equal Zbigniew', () => {
+            expect(service.getUserName()).to.be.eq(name);
+        });
+    })
 });

@@ -9,7 +9,6 @@ class HomeController {
     this.getUserName();
   }
   getUserName(){
-    //this.configurationService.getUserName === '' ? this.userName = 'Guest' : this.userName = this.configurationService.getUserName;
     this.userName = this.configurationService.getUserName();
   }
 
