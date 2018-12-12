@@ -1,7 +1,12 @@
-import HomeModule from './home'
+import HomeModule from './home';
+import HomeController from './home.controller';
 
 describe('Home', () => {
   let $rootScope, $state, $location, $componentController, $compile;
+  let makeController;
+  const configurationService = {
+    getUserName: () => {}
+  };
 
   beforeEach(window.module(HomeModule));
 
@@ -11,6 +16,12 @@ describe('Home', () => {
     $state = $injector.get('$state');
     $location = $injector.get('$location');
     $compile = $injector.get('$compile');
+  }));
+
+  beforeEach((() => {
+    makeController = () => {
+      return new HomeController(configurationService);
+    };
   }));
 
   describe('Module', () => {
@@ -23,17 +34,28 @@ describe('Home', () => {
   });
 
   describe('Controller', () => {
-    // controller specs
     let controller;
+    
     beforeEach(() => {
-      controller = $componentController('home', {
-        $scope: $rootScope.$new()
-      });
+      controller = makeController();
     });
 
-    // it('has a name property', () => { // erase if removing this.name from the controller
-    //   expect(controller).to.have.property('name');
-    // });
+    describe('getName', () => {
+      let getUserNameSpy;
+
+      beforeEach(() => {
+        getUserNameSpy = sinon.spy(configurationService, 'getUserName');
+        controller.getUserName();
+      });
+
+      afterEach(() => {
+        getUserNameSpy.restore();
+      });
+
+      it('should call getUserName method', () => {
+        expect(getUserNameSpy.called).to.be.ok;
+      });
+    });
   });
 
   describe('View', () => {
@@ -45,10 +67,6 @@ describe('Home', () => {
       template = $compile('<home></home>')(scope);
       scope.$apply();
     });
-
-    // it('has name in template', () => {
-    //   expect(template.find('h2').html()).to.eq('Found in home.html');
-    // });
 
   });
 });
